@@ -33,10 +33,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           fontFamily: "vazir",
           textTheme: const TextTheme(
-            displayLarge: TextStyle(color: Colors.deepPurpleAccent),
-            displayMedium: TextStyle(color: Colors.deepPurpleAccent),
-            bodyMedium: TextStyle(color: Colors.deepPurpleAccent),
-            titleMedium: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+            displayLarge: TextStyle(color: Colors.white),
+            displayMedium: TextStyle(color: Colors.white),
+            bodyMedium: TextStyle(color: Colors.white),
+            titleLarge: TextStyle(fontSize: 18, color: Colors.white),
+            titleMedium: TextStyle(fontSize: 16, color: Colors.white),
+            titleSmall: TextStyle(
+                fontSize: 14, color: Color.fromARGB(200, 255, 255, 255)),
           )),
       home: splashScreen(),
     );
