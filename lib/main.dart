@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/my_colors.dart';
-import 'package:tech_blog/splash_screen.dart';
+import 'package:tech_blog/view/splash_screen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -40,6 +40,15 @@ class MyApp extends StatelessWidget {
             titleMedium: TextStyle(fontSize: 16, color: Colors.white),
             titleSmall: TextStyle(
                 fontSize: 14, color: Color.fromARGB(200, 255, 255, 255)),
+            labelLarge: TextStyle(
+              fontSize: 18,
+            ),
+            labelMedium: TextStyle(
+              fontSize: 16,
+            ),
+            labelSmall: TextStyle(
+              fontSize: 14,
+            ),
           )),
       home: splashScreen(),
     );

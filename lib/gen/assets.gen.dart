@@ -9,6 +9,31 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsIconsGen {
+  const $AssetsIconsGen();
+
+  /// File path: assets/icons/hashtag.png
+  AssetGenImage get hashtag => const AssetGenImage('assets/icons/hashtag.png');
+
+  /// File path: assets/icons/home.png
+  AssetGenImage get home => const AssetGenImage('assets/icons/home.png');
+
+  /// File path: assets/icons/mic.png
+  AssetGenImage get mic => const AssetGenImage('assets/icons/mic.png');
+
+  /// File path: assets/icons/pen.png
+  AssetGenImage get pen => const AssetGenImage('assets/icons/pen.png');
+
+  /// File path: assets/icons/user.png
+  AssetGenImage get user => const AssetGenImage('assets/icons/user.png');
+
+  /// File path: assets/icons/write.png
+  AssetGenImage get write => const AssetGenImage('assets/icons/write.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [hashtag, home, mic, pen, user, write];
+}
+
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
@@ -19,17 +44,21 @@ class $AssetsImagesGen {
   AssetGenImage get logo960x960 =>
       const AssetGenImage('assets/images/logo960x960.png');
 
+  /// File path: assets/images/profile.png
+  AssetGenImage get profile => const AssetGenImage('assets/images/profile.png');
+
   /// File path: assets/images/topbanner.png
   AssetGenImage get topbanner =>
       const AssetGenImage('assets/images/topbanner.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [logo, logo960x960, topbanner];
+  List<AssetGenImage> get values => [logo, logo960x960, profile, topbanner];
 }
 
 class Assets {
   Assets._();
 
+  static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 

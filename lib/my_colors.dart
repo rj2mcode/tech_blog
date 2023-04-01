@@ -16,8 +16,8 @@ class solidColors {
 
 class gradiantColors {
   static const List<Color> bottomNavMenu = [
-    Color.fromARGB(255, 255, 255, 255),
-    Color.fromARGB(255, 255, 255, 255)
+    Color.fromARGB(255, 72, 20, 88),
+    Color.fromARGB(255, 280, 20, 81),
   ];
   static const List<Color> tags = [
     Color.fromARGB(255, 0, 0, 0),
@@ -28,5 +28,15 @@ class gradiantColors {
     Color.fromARGB(0, 0, 0, 0),
     Color.fromARGB(192, 72, 20, 88),
     Color.fromARGB(255, 280, 20, 81),
+  ];
+
+  static const List<Color> MainPageBlogItem = [
+    Color.fromARGB(0, 0, 0, 0),
+    Color.fromARGB(150, 0, 0, 0),
+  ];
+
+  static const List<Color> MainPageBottomNavBarBg = [
+    Color.fromARGB(0, 255, 255, 255),
+    Color.fromARGB(255, 255, 255, 255),
   ];
 }
