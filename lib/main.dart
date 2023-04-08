@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/my_colors.dart';
+import 'package:tech_blog/view/main_screen.dart';
+import 'package:tech_blog/view/register_intro_screen.dart';
 import 'package:tech_blog/view/splash_screen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(statusBarColor: solidColors.statusBarColor));
+      const SystemUiOverlayStyle(statusBarColor: SolidColors.statusBarColor));
   runApp(const MyApp());
 }
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    var texttheme = Theme.of(context).textTheme;
     return MaterialApp(
       title: 'Flutter Demo1',
       debugShowCheckedModeBanner: false,
@@ -30,7 +32,31 @@ class MyApp extends StatelessWidget {
       supportedLocales: const [
         Locale('fa'), //farsi
       ],
+
       theme: ThemeData(
+          inputDecorationTheme: InputDecorationTheme(
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
+                borderSide: const BorderSide(width: 2),
+              ),
+              filled: true,
+              fillColor: Colors.black12),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ButtonStyle(textStyle: MaterialStateProperty.resolveWith(
+            (states) {
+              if (states.contains(MaterialState.pressed)) {
+                return texttheme.titleLarge;
+              }
+              return texttheme.titleMedium;
+            },
+          ), backgroundColor: MaterialStateProperty.resolveWith(
+            (states) {
+              if (states.contains(MaterialState.pressed)) {
+                return SolidColors.title;
+              }
+              return SolidColors.primary;
+            },
+          ))),
           fontFamily: "vazir",
           textTheme: const TextTheme(
             displayLarge: TextStyle(color: Colors.white),
@@ -50,7 +76,8 @@ class MyApp extends StatelessWidget {
               fontSize: 14,
             ),
           )),
-      home: splashScreen(),
+      home: const SplashScreen(),
+      //home: const RegisterIntroScreen(),
     );
   }
 }

@@ -18,6 +18,9 @@ List<HashTag> tagList = [
   HashTag(title: "وب"),
   HashTag(title: "برنامه نویسی"),
 ];
+
+List<HashTag> tagSelectedList = [];
+
 List<BlogModel> blogList = [
   BlogModel(
       id: 1,
@@ -85,7 +88,7 @@ List<BlogModel> blogList = [
       views: "36353"),
 ];
 
-List<PodcastModel> PodcastList = [
+List<PodcastModel> podcastList = [
   PodcastModel(
       id: 1,
       imageUrl:

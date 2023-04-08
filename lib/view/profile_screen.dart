@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../gen/assets.gen.dart';
-import '../models/fake_data.dart';
+
 import '../my_colors.dart';
 import '../my_components.dart';
 import '../my_strings.dart';
 
-class profileScreen extends StatelessWidget {
-  const profileScreen({
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({
     super.key,
     required this.size,
     required this.texttheme,
@@ -24,6 +23,9 @@ class profileScreen extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
+          const SizedBox(
+            height: 50,
+          ),
           Image.asset(
             Assets.images.profile.path,
             height: 100,
@@ -43,7 +45,7 @@ class profileScreen extends StatelessWidget {
                 width: 8,
               ),
               Text(
-                myStrings.editProfileAvatar,
+                MyStrings.editProfileAvatar,
                 style: texttheme.labelMedium?.merge(
                   const TextStyle(color: Colors.blue),
                 ),
@@ -68,14 +70,14 @@ class profileScreen extends StatelessWidget {
           const SizedBox(
             height: 40,
           ),
-          dividerComponent(size: size),
+          DividerComponent(size: size),
           SizedBox(
             height: 45,
             child: InkWell(
               onTap: () {
                 //Do Somethings
               },
-              splashColor: solidColors.primary,
+              splashColor: SolidColors.primary,
               child: Center(
                 child: Text(
                   "مقالات مورد علاقه من",
@@ -86,14 +88,14 @@ class profileScreen extends StatelessWidget {
               ),
             ),
           ),
-          dividerComponent(size: size),
+          DividerComponent(size: size),
           SizedBox(
             height: 45,
             child: InkWell(
               onTap: () {
                 //Do Somethings
               },
-              splashColor: solidColors.primary,
+              splashColor: SolidColors.primary,
               child: Center(
                 child: Text(
                   "پادکست های مورد علاقه من",
@@ -104,14 +106,14 @@ class profileScreen extends StatelessWidget {
               ),
             ),
           ),
-          dividerComponent(size: size),
+          DividerComponent(size: size),
           SizedBox(
             height: 45,
             child: InkWell(
               onTap: () {
                 //Do Somethings
               },
-              splashColor: solidColors.primary,
+              splashColor: SolidColors.primary,
               child: Center(
                 child: Text(
                   "خروج از حساب کاربری",
@@ -123,7 +125,7 @@ class profileScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 100,
+            height: 50,
           ),
         ],
       ),

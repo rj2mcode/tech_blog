@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:tech_blog/my_components.dart';
 
 import '../gen/assets.gen.dart';
 import '../models/fake_data.dart';
 import '../my_colors.dart';
 import '../my_strings.dart';
 
-class homeScreen extends StatelessWidget {
-  const homeScreen({
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({
     super.key,
     required this.size,
     required this.texttheme,
@@ -25,24 +25,24 @@ class homeScreen extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
         child: Column(
           children: [
-            homeScreenTopBanner(size: size, texttheme: texttheme),
+            HomeScreenTopBanner(size: size, texttheme: texttheme),
             const SizedBox(
               height: 16,
             ),
-            homeScreenTagList(bodyMargin: bodyMargin, texttheme: texttheme),
+            HomeScreenTagList(bodyMargin: bodyMargin, texttheme: texttheme),
             const SizedBox(
               height: 40,
             ),
-            homeScreenSeeMoreBlogs(
+            HomeScreenSeeMoreBlogs(
                 bodyMargin: bodyMargin, texttheme: texttheme),
-            homeScreenBlogListItems(
+            HomeScreenBlogListItems(
                 size: size, bodyMargin: bodyMargin, texttheme: texttheme),
             const SizedBox(
               height: 40,
             ),
-            homeScreenSeeMorePodcasts(
+            HomeScreenSeeMorePodcasts(
                 bodyMargin: bodyMargin, texttheme: texttheme),
-            homeScreenPodcastListItems(
+            HomeScreenPodcastListItems(
                 size: size, bodyMargin: bodyMargin, texttheme: texttheme),
             const SizedBox(
               height: 100,
@@ -54,8 +54,8 @@ class homeScreen extends StatelessWidget {
   }
 }
 
-class homeScreenPodcastListItems extends StatelessWidget {
-  const homeScreenPodcastListItems({
+class HomeScreenPodcastListItems extends StatelessWidget {
+  const HomeScreenPodcastListItems({
     super.key,
     required this.size,
     required this.bodyMargin,
@@ -91,14 +91,14 @@ class homeScreenPodcastListItems extends StatelessWidget {
                                 const BorderRadius.all(Radius.circular(16)),
                             image: DecorationImage(
                                 image:
-                                    NetworkImage(PodcastList[index].imageUrl),
+                                    NetworkImage(podcastList[index].imageUrl),
                                 fit: BoxFit.cover),
                           ),
                           foregroundDecoration: const BoxDecoration(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(16)),
                               gradient: LinearGradient(
-                                  colors: gradiantColors.MainPageBlogItem,
+                                  colors: GradiantColors.mainPageBlogItem,
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter)),
                         ),
@@ -112,13 +112,13 @@ class homeScreenPodcastListItems extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  PodcastList[index].writer,
+                                  podcastList[index].writer,
                                   style: texttheme.titleSmall,
                                 ),
                                 Row(
                                   children: [
                                     Text(
-                                      PodcastList[index].views + " ",
+                                      "${podcastList[index].views} ",
                                       style: texttheme.titleSmall,
                                     ),
                                     const Icon(
@@ -139,7 +139,7 @@ class homeScreenPodcastListItems extends StatelessWidget {
                     width: size.width / 2.3,
                     child: Text(
                       blogList[index].title,
-                      style: TextStyle(color: Colors.black),
+                      style: const TextStyle(color: Colors.black),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
                     ),
@@ -152,8 +152,8 @@ class homeScreenPodcastListItems extends StatelessWidget {
   }
 }
 
-class homeScreenSeeMorePodcasts extends StatelessWidget {
-  const homeScreenSeeMorePodcasts({
+class HomeScreenSeeMorePodcasts extends StatelessWidget {
+  const HomeScreenSeeMorePodcasts({
     super.key,
     required this.bodyMargin,
     required this.texttheme,
@@ -177,7 +177,7 @@ class homeScreenSeeMorePodcasts extends StatelessWidget {
             width: 8,
           ),
           Text(
-            myStrings.showHotPodcasts,
+            MyStrings.showHotPodcasts,
             style: texttheme.labelMedium?.merge(
               const TextStyle(color: Colors.blue),
             ),
@@ -188,8 +188,8 @@ class homeScreenSeeMorePodcasts extends StatelessWidget {
   }
 }
 
-class homeScreenBlogListItems extends StatelessWidget {
-  const homeScreenBlogListItems({
+class HomeScreenBlogListItems extends StatelessWidget {
+  const HomeScreenBlogListItems({
     super.key,
     required this.size,
     required this.bodyMargin,
@@ -231,7 +231,7 @@ class homeScreenBlogListItems extends StatelessWidget {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(16)),
                               gradient: LinearGradient(
-                                  colors: gradiantColors.MainPageBlogItem,
+                                  colors: GradiantColors.mainPageBlogItem,
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter)),
                         ),
@@ -251,7 +251,7 @@ class homeScreenBlogListItems extends StatelessWidget {
                                 Row(
                                   children: [
                                     Text(
-                                      blogList[index].views + " ",
+                                      "${blogList[index].views} ",
                                       style: texttheme.titleSmall,
                                     ),
                                     const Icon(
@@ -272,7 +272,7 @@ class homeScreenBlogListItems extends StatelessWidget {
                     width: size.width / 2.3,
                     child: Text(
                       blogList[index].title,
-                      style: TextStyle(color: Colors.black),
+                      style: const TextStyle(color: Colors.black),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
                     ),
@@ -285,8 +285,8 @@ class homeScreenBlogListItems extends StatelessWidget {
   }
 }
 
-class homeScreenSeeMoreBlogs extends StatelessWidget {
-  const homeScreenSeeMoreBlogs({
+class HomeScreenSeeMoreBlogs extends StatelessWidget {
+  const HomeScreenSeeMoreBlogs({
     super.key,
     required this.bodyMargin,
     required this.texttheme,
@@ -310,7 +310,7 @@ class homeScreenSeeMoreBlogs extends StatelessWidget {
             width: 8,
           ),
           Text(
-            myStrings.showHotBlogs,
+            MyStrings.showHotBlogs,
             style: texttheme.labelMedium?.merge(
               const TextStyle(color: Colors.blue),
             ),
@@ -321,8 +321,8 @@ class homeScreenSeeMoreBlogs extends StatelessWidget {
   }
 }
 
-class homeScreenTagList extends StatelessWidget {
-  const homeScreenTagList({
+class HomeScreenTagList extends StatelessWidget {
+  const HomeScreenTagList({
     super.key,
     required this.bodyMargin,
     required this.texttheme,
@@ -345,42 +345,15 @@ class homeScreenTagList extends StatelessWidget {
                   8,
                   index == 0 ? bodyMargin : 12,
                   8),
-              child: Container(
-                height: 60,
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(16)),
-                    gradient: LinearGradient(
-                        colors: gradiantColors.tags,
-                        begin: Alignment.centerRight,
-                        end: Alignment.centerLeft)),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 8, 10, 8),
-                  child: Row(
-                    children: [
-                      ImageIcon(
-                        Image.asset(Assets.icons.hashtag.path).image,
-                        color: Colors.grey.shade400,
-                        size: 16,
-                      ),
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      Text(
-                        tagList[index].title,
-                        style: texttheme.titleMedium,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              child: MainTags(texttheme: texttheme, index: index),
             );
           })),
     );
   }
 }
 
-class homeScreenTopBanner extends StatelessWidget {
-  const homeScreenTopBanner({
+class HomeScreenTopBanner extends StatelessWidget {
+  const HomeScreenTopBanner({
     super.key,
     required this.size,
     required this.texttheme,
@@ -404,7 +377,7 @@ class homeScreenTopBanner extends StatelessWidget {
           foregroundDecoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(16)),
               gradient: LinearGradient(
-                  colors: gradiantColors.MainPageTopBanner,
+                  colors: GradiantColors.mainPageTopBanner,
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter)),
         ),

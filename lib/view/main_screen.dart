@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/my_colors.dart';
-import 'package:tech_blog/my_strings.dart';
 import 'package:tech_blog/view/home_screen.dart';
 import 'package:tech_blog/view/profile_screen.dart';
+import 'package:tech_blog/view/register_intro_screen.dart';
 
-import '../models/fake_data.dart';
-
-class mainScreen extends StatefulWidget {
-  const mainScreen({super.key});
+class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
 
   @override
-  State<mainScreen> createState() => _mainScreenState();
+  State<MainScreen> createState() => _MainScreenState();
 }
 
-class _mainScreenState extends State<mainScreen> {
+final GlobalKey<ScaffoldState> _key = GlobalKey();
+
+class _MainScreenState extends State<MainScreen> {
   var selectedPageIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -26,23 +25,76 @@ class _mainScreenState extends State<mainScreen> {
     double bodyMarginNavBar = size.width / 10;
     //End Consts
 
-    List<Widget> screenPagesList = [
-      homeScreen(size: size, texttheme: texttheme, bodyMargin: bodyMargin),
-      profileScreen(size: size, texttheme: texttheme, bodyMargin: bodyMargin),
-    ];
+    // List<Widget> screenPagesList = [
+    //   HomeScreen(size: size, texttheme: texttheme, bodyMargin: bodyMargin),
+    //   profileScreen(size: size, texttheme: texttheme, bodyMargin: bodyMargin),
+    // ];
 
     return SafeArea(
       child: Scaffold(
+        key: _key,
+        drawer: Drawer(
+          backgroundColor: Colors.white,
+          child: Padding(
+            padding: EdgeInsets.only(right: bodyMargin, left: bodyMargin),
+            child: ListView(
+              children: [
+                DrawerHeader(
+                  child: Center(
+                    child: Image.asset(
+                      Assets.images.logo.path,
+                      scale: 2,
+                    ),
+                  ),
+                ),
+                ListTile(
+                  title: const Text("پروفایل کاربری"),
+                  onTap: () {},
+                ),
+                const Divider(
+                  color: Colors.grey,
+                ),
+                ListTile(
+                  title: const Text("درباره تک بلاگ"),
+                  onTap: () {},
+                ),
+                const Divider(
+                  color: Colors.grey,
+                ),
+                ListTile(
+                  title: const Text("اشتراک گذاری"),
+                  onTap: () {},
+                ),
+                const Divider(
+                  color: Colors.grey,
+                ),
+                ListTile(
+                  title: const Text("تک بلاگ گیت هاب"),
+                  onTap: () {},
+                ),
+                const Divider(
+                  color: Colors.grey,
+                ),
+              ],
+            ),
+          ),
+        ),
         appBar: AppBar(
-          backgroundColor: solidColors.mainPagebg,
+          automaticallyImplyLeading: false,
+          backgroundColor: SolidColors.mainPagebg,
           elevation: 0,
           //Top Menu
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const Icon(
-                Icons.menu,
-                color: Colors.black,
+              InkWell(
+                onTap: () {
+                  _key.currentState!.openDrawer();
+                },
+                child: const Icon(
+                  Icons.menu,
+                  color: Colors.black,
+                ),
               ),
               Assets.images.logo.image(height: size.height / 13.8),
               const Icon(
@@ -54,24 +106,19 @@ class _mainScreenState extends State<mainScreen> {
         ),
         body: Stack(
           children: [
-            Center(
-              child: Positioned.fill(
-                child: IndexedStack(
-                  index: selectedPageIndex,
-                  children: [
-                    homeScreen(
-                        size: size,
-                        texttheme: texttheme,
-                        bodyMargin: bodyMargin),
-                    profileScreen(
-                        size: size,
-                        texttheme: texttheme,
-                        bodyMargin: bodyMargin),
-                  ],
-                ),
+            Positioned.fill(
+              child: IndexedStack(
+                index: selectedPageIndex,
+                children: [
+                  HomeScreen(
+                      size: size, texttheme: texttheme, bodyMargin: bodyMargin),
+                  ProfileScreen(
+                      size: size, texttheme: texttheme, bodyMargin: bodyMargin),
+                  RegisterIntroScreen(),
+                ],
               ),
             ),
-            bottomNavigation(
+            BottomNavigation(
               size: size,
               bodyMarginNavBar: bodyMarginNavBar,
               changeScreen: (int value) {
@@ -87,8 +134,8 @@ class _mainScreenState extends State<mainScreen> {
   }
 }
 
-class bottomNavigation extends StatelessWidget {
-  const bottomNavigation({
+class BottomNavigation extends StatelessWidget {
+  const BottomNavigation({
     super.key,
     required this.size,
     required this.bodyMarginNavBar,
@@ -109,7 +156,7 @@ class bottomNavigation extends StatelessWidget {
         height: size.height / 10,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-              colors: gradiantColors.MainPageBottomNavBarBg,
+              colors: GradiantColors.mainPageBottomNavBarBg,
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter),
         ),
@@ -120,7 +167,7 @@ class bottomNavigation extends StatelessWidget {
             height: size.height / 8,
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(16)),
-              gradient: LinearGradient(colors: gradiantColors.bottomNavMenu),
+              gradient: LinearGradient(colors: GradiantColors.bottomNavMenu),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -133,7 +180,7 @@ class bottomNavigation extends StatelessWidget {
                       size: 42,
                     )),
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () => changeScreen(2),
                     icon: ImageIcon(
                       Image.asset(Assets.icons.write.path).image,
                       color: Colors.white,

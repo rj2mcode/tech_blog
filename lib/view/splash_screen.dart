@@ -1,21 +1,22 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
 import 'package:tech_blog/view/main_screen.dart';
 import 'package:tech_blog/my_colors.dart';
 
-class splashScreen extends StatefulWidget {
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
-  State<splashScreen> createState() => _splashScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _splashScreenState extends State<splashScreen> {
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 5)).then((value) {
+    Future.delayed(const Duration(seconds: 5)).then((value) {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => mainScreen()));
+          MaterialPageRoute(builder: (context) => const MainScreen()));
     });
 
     super.initState();
@@ -34,7 +35,7 @@ class _splashScreenState extends State<splashScreen> {
                 height: 200,
               ),
               const SpinKitThreeBounce(
-                color: solidColors.primary,
+                color: SolidColors.primary,
                 size: 30.0,
               )
             ],
