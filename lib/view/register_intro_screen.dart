@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
-import 'package:tech_blog/my_colors.dart';
+import 'package:tech_blog/component/my_colors.dart';
 import 'package:tech_blog/view/my_categories_screen.dart';
-import '../my_strings.dart';
+import '../component/my_strings.dart';
 import 'package:validators/validators.dart';
 
 class RegisterIntroScreen extends StatelessWidget {
@@ -97,7 +97,7 @@ class RegisterIntroScreen extends StatelessWidget {
                 ElevatedButton(
                     onPressed: () {
                       Navigator.pop(context);
-                      _ActivationCodeBottomSheet(context, size, texttheme);
+                      _activationCodeBottomSheet(context, size, texttheme);
                     },
                     child: const Text("ارسال"))
               ],
@@ -108,7 +108,7 @@ class RegisterIntroScreen extends StatelessWidget {
     );
   }
 
-  Future<dynamic> _ActivationCodeBottomSheet(
+  Future<dynamic> _activationCodeBottomSheet(
       BuildContext context, Size size, TextTheme texttheme) {
     return showModalBottomSheet(
       isScrollControlled: true,
@@ -154,7 +154,7 @@ class RegisterIntroScreen extends StatelessWidget {
                 ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => MyCategoriesScreen()));
+                          builder: (context) => const MyCategoriesScreen()));
                     },
                     child: const Text("ارسال"))
               ],

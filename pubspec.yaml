@@ -41,6 +41,7 @@ dependencies:
   localization: ^2.1.0
   flutter_svg: ^2.0.4
   validators: ^3.0.0
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:

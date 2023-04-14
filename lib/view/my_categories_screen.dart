@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tech_blog/models/fake_data.dart';
-import 'package:tech_blog/my_components.dart';
-import 'package:tech_blog/my_strings.dart';
-import '../my_colors.dart';
+import 'package:tech_blog/component/my_components.dart';
+import 'package:tech_blog/component/my_strings.dart';
+import '../component/my_colors.dart';
 import '../gen/assets.gen.dart';
 
 class MyCategoriesScreen extends StatefulWidget {
@@ -87,8 +87,9 @@ class _MyCategoriesScreenState extends State<MyCategoriesScreen> {
                         return InkWell(
                             onTap: () {
                               setState(() {
-                                if (!tagSelectedList.contains(tagList[index]))
+                                if (!tagSelectedList.contains(tagList[index])) {
                                   tagSelectedList.add(tagList[index]);
+                                }
                               });
                             },
                             child:

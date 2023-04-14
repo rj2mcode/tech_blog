@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../my_colors.dart';
-import 'gen/assets.gen.dart';
-import 'models/fake_data.dart';
+import '../component/my_colors.dart';
+import '../gen/assets.gen.dart';
+import '../models/fake_data.dart';
 
 class DividerComponent extends StatelessWidget {
   const DividerComponent({

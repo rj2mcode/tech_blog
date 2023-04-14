@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tech_blog/gen/assets.gen.dart';
-import 'package:tech_blog/my_colors.dart';
+import 'package:tech_blog/component/my_colors.dart';
 import 'package:tech_blog/view/home_screen.dart';
 import 'package:tech_blog/view/profile_screen.dart';
 import 'package:tech_blog/view/register_intro_screen.dart';
@@ -114,7 +114,7 @@ class _MainScreenState extends State<MainScreen> {
                       size: size, texttheme: texttheme, bodyMargin: bodyMargin),
                   ProfileScreen(
                       size: size, texttheme: texttheme, bodyMargin: bodyMargin),
-                  RegisterIntroScreen(),
+                  const RegisterIntroScreen(),
                 ],
               ),
             ),
